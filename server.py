@@ -5,11 +5,11 @@ app.secret_key='ThisisSecret'
 from random import *
 
 def setSession():
-    session['target'] = randint(1,101)
+    if 'target' not in session:
+        session['target'] = randint(1,101)
 
 @app.route('/')
 def index():
-    session['display'] = 0
     setSession()
     return render_template('index.html')
 
