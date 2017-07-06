@@ -25,8 +25,10 @@ def result():
         session['display'] = 3
 
 @app.route('/reset',methods=['GET','POST'])
-def reset():
+def reset():    
+    session['target'] = randint(1,101)
     setSession()
+    session['display'] = 0
     return redirect('/')
 
 app.run(debug=True)
