@@ -17,15 +17,12 @@ def index():
 def result():
     inputs = request.form['number']
     input_num = int(inputs)
-    try:
-        if input_num < session['target']:
-            session['display'] = 1
-        elif input_num > session['target']:
-            session['display'] = 2
-        else:
-            session['display'] = 3
-    except:
-        session['display'] = 0
+    if input_num < session['target']:
+        session['display'] = 1
+    elif input_num > session['target']:
+        session['display'] = 2
+    else:
+        session['display'] = 3
 
 @app.route('/reset',methods=['GET','POST'])
 def reset():
