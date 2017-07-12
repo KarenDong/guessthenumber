@@ -15,6 +15,10 @@ def index():
 
 @app.route('/result', methods=['GET','POST'])
 def result():
+    try:
+        session['display']
+    except:
+        session['display'] = 0
     inputs = request.form['number']
     input_num = int(inputs)
     if input_num < session['target']:
